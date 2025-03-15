@@ -1,0 +1,21 @@
+<div class="min-h-screen">
+  <app-navbar></app-navbar>
+
+  <div class="flex">
+    <app-sidebar></app-sidebar>
+
+    <div class="main-content flex-1 p-4">
+      <div class="grid gap-4">
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="xl:w-3/4">
+            <app-stats-grid></app-stats-grid>
+            <app-recent-invoices></app-recent-invoices>
+          </div>
+          <div class="xl:w-1/4">
+            <app-chat-list></app-chat-list>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

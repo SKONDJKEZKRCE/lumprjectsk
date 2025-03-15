@@ -1,0 +1,34 @@
+<div class="p-4 sm:ml-64">
+  <div class="flex justify-between items-center mb-4">
+    <h3 class="text-xl font-semibold">Missions</h3>
+    <div class="relative">
+      <button (click)="toggleDropdown()" class="p-2 text-gray-500 hover:text-gray-700">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 5c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2zm0 7c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2zm0 7c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2z"/>
+        </svg>
+      </button>
+      <div *ngIf="showDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg border">
+        <button (click)="openMissionModal()" class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100">
+          New Mission
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngFor="let mission of missions" class="mb-3 p-4 bg-white rounded-lg shadow">
+    <h4 class="font-medium text-lg">{{ mission.title }}</h4>
+    <p class="text-gray-600">{{ mission.phone }}</p>
+  </div>
+
+  <div *ngIf="showMissionModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-6 rounded-lg w-96">
+      <input [(ngModel)]="newMission.title" placeholder="Mission Title" class="w-full mb-3 p-2 border rounded">
+      <input [(ngModel)]="newMission.phone" placeholder="Phone Number" class="w-full mb-3 p-2 border rounded">
+      <div class="flex justify-end gap-2">
+        <button (click)="showMissionModal = false" class="px-4 py-2 border rounded">Cancel</button>
+        <button (click)="saveMission()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
